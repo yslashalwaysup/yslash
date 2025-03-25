@@ -4,30 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Futebol</title>
-    <style>
-        body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            background-color: #f4f4f4;
-            margin: 0;
-        }
-        a {
-            text-decoration: none;
-            outline: none;
-            -webkit-tap-highlight-color: transparent;
-        }
-        img {
-            max-width: 100%;
-            height: auto;
-            cursor: pointer;
-        }
-    </style>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/video.js/7.20.3/video-js.min.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/video.js/7.20.3/video.min.js"></script>
 </head>
-<body>
-    <a href="https://cdnjs.cloudflare.com/ajax/libs/video.js/7.20.3/video-js.min.css" target="_blank">
-        <img src="https://iili.io/3TGctFR.jpg" alt="Imagem">
-    </a>
+<body style="display: flex; justify-content: center; align-items: center; height: 100vh; background-color: #f4f4f4; margin: 0;">
+    <video id="videoPlayer" class="video-js vjs-default-skin" controls autoplay width="640" height="360">
+        <source src="http://ngzcdn.vood.top/live/Veron23/Veron2023/547.m3u8?sjwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3NDI5NDcxOTksImlhdCI6MTc0Mjg2MDgwMCwibmJmIjoxNzQyODYwODAwLCJ1c2VyIjoiVmVyb24yMyIsInVzZXJBZ2VudCI6Ik1vemlsbGEvNS4wIChpUGhvbmU7IENQVSBpUGhvbmUgT1MgMTZfN18xMCBsaWtlIE1hYyBPUyBYKSBBcHBsZVdlYktpdC82MDUuMS4xNSAoS0hUTUwsIGxpa2UgR2Vja28pIFZlcnNpb24vMTYuNiBNb2JpbGUvMTVFMTQ4IFNhZmFyaS82MDQuMSIsInVzZXJJcCI6IjE4NS4yMzYuMTgzLjEwNzo0NzEyNCJ9.nKaN8UwyEcYRyCVxWB4ZmHG42EprlAiXFei2Ak0udeg&id=547&p=m3u8&aid=1742932245" type="application/x-mpegURL">
+        Seu navegador não suporta a reprodução deste vídeo.
+    </video>
+    <script>
+        var player = videojs('videoPlayer');
+    </script>
 </body>
 </html>

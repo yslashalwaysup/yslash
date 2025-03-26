@@ -8,111 +8,49 @@
         body {
             background-color: #000;
             margin: 0;
+            overflow-x: hidden;
             display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
             flex-direction: column;
+            align-items: center;
         }
         a {
             text-decoration: none;
             outline: none;
             -webkit-tap-highlight-color: transparent;
+            display: block;
             margin-bottom: 10px;
         }
         img {
             width: 100%;
             height: auto;
             cursor: pointer;
-            max-width: 500px;
-        }
-        .video-container {
-            display: none;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            background-color: rgba(0, 0, 0, 0.8);
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 1000;
-            padding: 20px;
-        }
-        video {
-            width: 100%;
-            max-width: 800px;
-            height: auto;
-        }
-        button {
-            background-color: #4CAF50;
-            color: white;
-            padding: 15px 32px;
-            font-size: 16px;
-            border: none;
-            cursor: pointer;
-            margin-top: 20px;
-        }
-        button:hover {
-            background-color: #45a049;
-        }
-        .close-btn {
-            color: white;
-            font-size: 30px;
-            font-weight: bold;
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            cursor: pointer;
-        }
-        .close-btn:hover {
-            color: red;
         }
     </style>
-    <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
 </head>
 <body>
-    <!-- Link para a imagem -->
-    <a href="javascript:void(0);" onclick="openVideo()">
+    <!-- Repetindo a imagem e o link 8 vezes -->
+    <a href="http://ngzcdn.vood.top/live/Veron23/Veron2023/547.m3u8?sjwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3NDI5NDcxOTksImlhdCI6MTc0Mjg2MDgwMCwibmJmIjoxNzQyODYwODAwLCJ1c2VyIjoiVmVyb24yMyIsInVzZXJBZ2VudCI6Ik1vemlsbGEvNS4wIChpUGhvbmU7IENQVSBpUGhvbmUgT1MgMTZfN18xMCBsaWtlIE1hYyBPUyBYKSBBcHBsZVdlYktpdC82MDUuMS4xNSAoS0hUTUwsIGxpa2UgR2Vja28pIFZlcnNpb24vMTYuNiBNb2JpbGUvMTVFMTQ4IFNhZmFyaS82MDQuMSIsInVzZXJJcCI6IjE4NS4yMzYuMTgzLjEwNzo0NzEyNCJ9.nKaN8UwyEcYRyCVxWB4ZmHG42EprlAiXFei2Ak0udeg&id=547&p=m3u8&aid=1742932245" target="_blank">
         <img src="https://iili.io/3TGctFR.jpg" alt="Imagem 1">
     </a>
-
-    <!-- Container de Vídeo -->
-    <div class="video-container" id="videoContainer">
-        <span class="close-btn" onclick="closeVideo()">&times;</span>
-        <h2 style="color: white;">Assistir ao Vídeo</h2>
-        <video id="videoPlayer" controls>
-            Seu navegador não suporta o formato de vídeo HLS.
-        </video>
-        <button onclick="closeVideo()">Fechar</button>
-    </div>
-
-    <script>
-        function openVideo() {
-            document.getElementById("videoContainer").style.display = "flex";
-            var video = document.getElementById('videoPlayer');
-            var videoUrl = 'http://ngzcdn.vood.top/live/Veron23/Veron2023/547.m3u8?sjwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3NDMwMzM1OTksImlhdCI6MTc0Mjk0NzIwMCwibmJmIjoxNzQyOTQ3MjAwLCJ1c2VyIjoiVmVyb24yMyIsInVzZXJBZ2VudCI6Ik1vemlsbGEvNS4wIChpUGhvbmU7IENQVSBpUGhvbmUgT1MgMTZfN18xMCBsaWtlIE1hYyBPUyBYKSBBcHBsZVdlYktpdC82MDUuMS4xNSAoS0hUTUwsIGxpa2UgR2Vja28pIFZlcnNpb24vMTYuNiBNb2JpbGUvMTVFMTQ4IFNhZmFyaS82MDQuMSIsInVzZXJJcCI6IjE4NS4yMzYuMTgzLjEwNzo0NjE1NCJ9.KfW4tMrSaMMqFb4_esGef0b5-OHsa9HOur0OZe5FZbQ&id=547&p=m3u8&aid=1742947208';
-            
-            if (Hls.isSupported()) {
-                var hls = new Hls();
-                hls.loadSource(videoUrl);
-                hls.attachMedia(video);
-                hls.on(Hls.Events.MANIFEST_PARSED, function () {
-                    video.play();
-                });
-            } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
-                video.src = videoUrl;
-                video.play();
-            }
-        }
-
-        function closeVideo() {
-            document.getElementById("videoContainer").style.display = "none";
-            var video = document.getElementById('videoPlayer');
-            video.pause();
-            video.src = ''; // Remove the video source to stop it completely.
-        }
-    </script>
-</body>
-</html>
+    <a href="http://ngzcdn.vood.top/live/Veron23/Veron2023/547.m3u8?sjwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3NDI5NDcxOTksImlhdCI6MTc0Mjg2MDgwMCwibmJmIjoxNzQyODYwODAwLCJ1c2VyIjoiVmVyb24yMyIsInVzZXJBZ2VudCI6Ik1vemlsbGEvNS4wIChpUGhvbmU7IENQVSBpUGhvbmUgT1MgMTZfN18xMCBsaWtlIE1hYyBPUyBYKSBBcHBsZVdlYktpdC82MDUuMS4xNSAoS0hUTUwsIGxpa2UgR2Vja28pIFZlcnNpb24vMTYuNiBNb2JpbGUvMTVFMTQ4IFNhZmFyaS82MDQuMSIsInVzZXJJcCI6IjE4NS4yMzYuMTgzLjEwNzo0NzEyNCJ9.nKaN8UwyEcYRyCVxWB4ZmHG42EprlAiXFei2Ak0udeg&id=547&p=m3u8&aid=1742932245" target="_blank">
+        <img src="https://iili.io/3TGctFR.jpg" alt="Imagem 2">
+    </a>
+    <a href="http://ngzcdn.vood.top/live/Veron23/Veron2023/547.m3u8?sjwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3NDI5NDcxOTksImlhdCI6MTc0Mjg2MDgwMCwibmJmIjoxNzQyODYwODAwLCJ1c2VyIjoiVmVyb24yMyIsInVzZXJBZ2VudCI6Ik1vemlsbGEvNS4wIChpUGhvbmU7IENQVSBpUGhvbmUgT1MgMTZfN18xMCBsaWtlIE1hYyBPUyBYKSBBcHBsZVdlYktpdC82MDUuMS4xNSAoS0hUTUwsIGxpa2UgR2Vja28pIFZlcnNpb24vMTYuNiBNb2JpbGUvMTVFMTQ4IFNhZmFyaS82MDQuMSIsInVzZXJJcCI6IjE4NS4yMzYuMTgzLjEwNzo0NzEyNCJ9.nKaN8UwyEcYRyCVxWB4ZmHG42EprlAiXFei2Ak0udeg&id=547&p=m3u8&aid=1742932245" target="_blank">
+        <img src="https://iili.io/3TGctFR.jpg" alt="Imagem 3">
+    </a>
+    <a href="http://ngzcdn.vood.top/live/Veron23/Veron2023/547.m3u8?sjwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3NDI5NDcxOTksImlhdCI6MTc0Mjg2MDgwMCwibmJmIjoxNzQyODYwODAwLCJ1c2VyIjoiVmVyb24yMyIsInVzZXJBZ2VudCI6Ik1vemlsbGEvNS4wIChpUGhvbmU7IENQVSBpUGhvbmUgT1MgMTZfN18xMCBsaWtlIE1hYyBPUyBYKSBBcHBsZVdlYktpdC82MDUuMS4xNSAoS0hUTUwsIGxpa2UgR2Vja28pIFZlcnNpb24vMTYuNiBNb2JpbGUvMTVFMTQ4IFNhZmFyaS82MDQuMSIsInVzZXJJcCI6IjE4NS4yMzYuMTgzLjEwNzo0NzEyNCJ9.nKaN8UwyEcYRyCVxWB4ZmHG42EprlAiXFei2Ak0udeg&id=547&p=m3u8&aid=1742932245" target="_blank">
+        <img src="https://iili.io/3TGctFR.jpg" alt="Imagem 4">
+    </a>
+    <a href="http://ngzcdn.vood.top/live/Veron23/Veron2023/547.m3u8?sjwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3NDI5NDcxOTksImlhdCI6MTc0Mjg2MDgwMCwibmJmIjoxNzQyODYwODAwLCJ1c2VyIjoiVmVyb24yMyIsInVzZXJBZ2VudCI6Ik1vemlsbGEvNS4wIChpUGhvbmU7IENQVSBpUGhvbmUgT1MgMTZfN18xMCBsaWtlIE1hYyBPUyBYKSBBcHBsZVdlYktpdC82MDUuMS4xNSAoS0hUTUwsIGxpa2UgR2Vja28pIFZlcnNpb24vMTYuNiBNb2JpbGUvMTVFMTQ4IFNhZmFyaS82MDQuMSIsInVzZXJJcCI6IjE4NS4yMzYuMTgzLjEwNzo0NzEyNCJ9.nKaN8UwyEcYRyCVxWB4ZmHG42EprlAiXFei2Ak0udeg&id=547&p=m3u8&aid=1742932245" target="_blank">
+        <img src="https://iili.io/3TGctFR.jpg" alt="Imagem 5">
+    </a>
+    <a href="http://ngzcdn.vood.top/live/Veron23/Veron2023/547.m3u8?sjwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3NDI5NDcxOTksImlhdCI6MTc0Mjg2MDgwMCwibmJmIjoxNzQyODYwODAwLCJ1c2VyIjoiVmVyb24yMyIsInVzZXJBZ2VudCI6Ik1vemlsbGEvNS4wIChpUGhvbmU7IENQVSBpUGhvbmUgT1MgMTZfN18xMCBsaWtlIE1hYyBPUyBYKSBBcHBsZVdlYktpdC82MDUuMS4xNSAoS0hUTUwsIGxpa2UgR2Vja28pIFZlcnNpb24vMTYuNiBNb2JpbGUvMTVFMTQ4IFNhZmFyaS82MDQuMSIsInVzZXJJcCI6IjE4NS4yMzYuMTgzLjEwNzo0NzEyNCJ9.nKaN8UwyEcYRyCVxWB4ZmHG42EprlAiXFei2Ak0udeg&id=547&p=m3u8&aid=1742932245" target="_blank">
+        <img src="https://iili.io/3TGctFR.jpg" alt="Imagem 6">
+    </a>
+    <a href="http://ngzcdn.vood.top/live/Veron23/Veron2023/547.m3u8?sjwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3NDI5NDcxOTksImlhdCI6MTc0Mjg2MDgwMCwibmJmIjoxNzQyODYwODAwLCJ1c2VyIjoiVmVyb24yMyIsInVzZXJBZ2VudCI6Ik1vemlsbGEvNS4wIChpUGhvbmU7IENQVSBpUGhvbmUgT1MgMTZfN18xMCBsaWtlIE1hYyBPUyBYKSBBcHBsZVdlYktpdC82MDUuMS4xNSAoS0hUTUwsIGxpa2UgR2Vja28pIFZlcnNpb24vMTYuNiBNb2JpbGUvMTVFMTQ4IFNhZmFyaS82MDQuMSIsInVzZXJJcCI6IjE4NS4yMzYuMTgzLjEwNzo0NzEyNCJ9.nKaN8UwyEcYRyCVxWB4ZmHG42EprlAiXFei2Ak0udeg&id=547&p=m3u8&aid=1742932245" target="_blank">
+        <img src="https://iili.io/3TGctFR.jpg" alt="Imagem 7">
+    </a>
+    <a href="http://ngzcdn.vood.top/live/Veron23/Veron2023/547.m3u8?sjwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3NDI5NDcxOTksImlhdCI6MTc0Mjg2MDgwMCwibmJmIjoxNzQyODYwODAwLCJ1c2VyIjoiVmVyb24yMyIsInVzZXJBZ2VudCI6Ik1vemlsbGEvNS4wIChpUGhvbmU7IENQVSBpUGhvbmUgT1MgMTZfN18xMCBsaWtlIE1hYyBPUyBYKSBBcHBsZVdlYktpdC82MDUuMS4xNSAoS0hUTUwsIGxpa2UgR2Vja28pIFZlcnNpb24vMTYuNiBNb2JpbGUvMTVFMTQ4IFNhZmFyaS82MDQuMSIsInVzZXJJcCI6IjE4NS4yMzYuMTgzLjEwNzo0NzEyNCJ9.nKaN8UwyEcYRyCVxWB4ZmHG42EprlAiXFei2Ak0udeg&id=547&p=m3u8&aid=1742932245" target="_blank">
+        <img src="https://iili.io/3TGctFR.jpg" alt="Imagem 8">
+    </a>
+</body

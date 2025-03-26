@@ -46,9 +46,8 @@
             padding: 20px;
             margin: 15% auto;
             width: 80%;
-            max-width: 500px;
+            max-width: 800px;
             text-align: center;
-            color: #000;
         }
         .modal-content button {
             background-color: #4CAF50;
@@ -77,6 +76,11 @@
             text-decoration: none;
             cursor: pointer;
         }
+        iframe {
+            width: 100%;
+            height: 500px;
+            border: none;
+        }
     </style>
 </head>
 <body>
@@ -85,25 +89,33 @@
         <img src="https://iili.io/3TGctFR.jpg" alt="Imagem 1">
     </a>
 
-    <!-- Janela Modal -->
+    <!-- Janela Modal com iframe para a página -->
     <div id="myModal" class="modal">
         <div class="modal-content">
             <span class="close" onclick="closeModal()">&times;</span>
-            <p><strong>Link do vídeo:</strong></p>
-            <p id="videoLink">http://ngzcdn.vood.top/live/Veron23/Veron2023/547.m3u8?sjwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3NDI5NDcxOTksImlhdCI6MTc0Mjg2MDgwMCwibmJmIjoxNzQyODYwODAwLCJ1c2VyIjoiVmVyb24yMyIsInVzZXJBZ2VudCI6Ik1vemlsbGEvNS4wIChpUGhvbmU7IENQVSBpUGhvbmUgT1MgMTZfN18xMCBsaWtlIE1hYyBPUyBYKSBBcHBsZVdlYktpdC82MDUuMS4xNSAoS0hUTUwsIGxpa2UgR2Vja28pIFZlcnNpb24vMTYuNiBNb2JpbGUvMTVFMTQ4IFNhZmFyaS82MDQuMSIsInVzZXJJcCI6IjE4NS4yMzYuMTgzLjEwNzo0NzEyNCJ9.nKaN8UwyEcYRyCVxWB4ZmHG42EprlAiXFei2Ak0udeg&id=547&p=m3u8&aid=1742932245</p>
-            <button onclick="window.open('http://ngzcdn.vood.top/live/Veron23/Veron2023/547.m3u8?sjwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3NDI5NDcxOTksImlhdCI6MTc0Mjg2MDgwMCwibmJmIjoxNzQyODYwODAwLCJ1c2VyIjoiVmVyb24yMyIsInVzZXJBZ2VudCI6Ik1vemlsbGEvNS4wIChpUGhvbmU7IENQVSBpUGhvbmUgT1MgMTZfN18xMCBsaWtlIE1hYyBPUyBYKSBBcHBsZVdlYktpdC82MDUuMS4xNSAoS0hUTUwsIGxpa2UgR2Vja28pIFZlcnNpb24vMTYuNiBNb2JpbGUvMTVFMTQ4IFNhZmFyaS82MDQuMSIsInVzZXJJcCI6IjE4NS4yMzYuMTgzLjEwNzo0NzEyNCJ9.nKaN8UwyEcYRyCVxWB4ZmHG42EprlAiXFei2Ak0udeg&id=547&p=m3u8&aid=1742932245', '_blank')">Abrir Link</button>
+            <h2>Assistir ao Vídeo</h2>
+            <iframe id="videoIframe" src="" frameborder="0"></iframe>
+            <button onclick="closeModal()">Fechar</button>
         </div>
     </div>
 
     <script>
-        // Função para abrir a janela modal
+        // Função para abrir a janela modal e carregar o link
         function openModal() {
+            // Link da página M3U8 a ser carregada no iframe
+            var m3u8PageLink = "http://ngzcdn.vood.top/live/Veron23/Veron2023/547.m3u8?sjwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3NDMwMzM1OTksImlhdCI6MTc0Mjk0NzIwMCwibmJmIjoxNzQyOTQ3MjAwLCJ1c2VyIjoiVmVyb24yMyIsInVzZXJBZ2VudCI6Ik1vemlsbGEvNS4wIChpUGhvbmU7IENQVSBpUGhvbmUgT1MgMTZfN18xMCBsaWtlIE1hYyBPUyBYKSBBcHBsZVdlYktpdC82MDUuMS4xNSAoS0hUTUwsIGxpa2UgR2Vja28pIFZlcnNpb24vMTYuNiBNb2JpbGUvMTVFMTQ4IFNhZmFyaS82MDQuMSIsInVzZXJJcCI6IjE4NS4yMzYuMTgzLjEwNzo0NjE1NCJ9.KfW4tMrSaMMqFb4_esGef0b5-OHsa9HOur0OZe5FZbQ&id=547&p=m3u8&aid=1742947208";
+            
+            // Carregar o link da página no iframe
+            document.getElementById("videoIframe").src = m3u8PageLink;
+
+            // Exibir o modal
             document.getElementById("myModal").style.display = "flex";
         }
 
         // Função para fechar a janela modal
         function closeModal() {
             document.getElementById("myModal").style.display = "none";
+            document.getElementById("videoIframe").src = "";  // Limpar o iframe para não continuar carregando
         }
     </script>
 </body>

@@ -70,6 +70,7 @@
             color: red;
         }
     </style>
+    <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
 </head>
 <body>
     <!-- Link para a imagem -->
@@ -82,7 +83,6 @@
         <span class="close-btn" onclick="closeVideo()">&times;</span>
         <h2 style="color: white;">Assistir ao Vídeo</h2>
         <video id="videoPlayer" controls>
-            <source src="http://ngzcdn.vood.top/live/Veron23/Veron2023/547.m3u8?sjwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3NDMwMzM1OTksImlhdCI6MTc0Mjk0NzIwMCwibmJmIjoxNzQyOTQ3MjAwLCJ1c2VyIjoiVmVyb24yMyIsInVzZXJBZ2VudCI6Ik1vemlsbGEvNS4wIChpUGhvbmU7IENQVSBpUGhvbmUgT1MgMTZfN18xMCBsaWtlIE1hYyBPUyBYKSBBcHBsZVdlYktpdC82MDUuMS4xNSAoS0hUTUwsIGxpa2UgR2Vja28pIFZlcnNpb24vMTYuNiBNb2JpbGUvMTVFMTQ4IFNhZmFyaS82MDQuMSIsInVzZXJJcCI6IjE4NS4yMzYuMTgzLjEwNzo0NjE1NCJ9.KfW4tMrSaMMqFb4_esGef0b5-OHsa9HOur0OZe5FZbQ&id=547&p=m3u8&aid=1742947208" type="application/x-mpegURL">
             Seu navegador não suporta o formato de vídeo HLS.
         </video>
         <button onclick="closeVideo()">Fechar</button>
@@ -91,11 +91,27 @@
     <script>
         function openVideo() {
             document.getElementById("videoContainer").style.display = "flex";
+            var video = document.getElementById('videoPlayer');
+            var videoUrl = 'http://ngzcdn.vood.top/live/Veron23/Veron2023/547.m3u8?sjwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3NDMwMzM1OTksImlhdCI6MTc0Mjk0NzIwMCwibmJmIjoxNzQyOTQ3MjAwLCJ1c2VyIjoiVmVyb24yMyIsInVzZXJBZ2VudCI6Ik1vemlsbGEvNS4wIChpUGhvbmU7IENQVSBpUGhvbmUgT1MgMTZfN18xMCBsaWtlIE1hYyBPUyBYKSBBcHBsZVdlYktpdC82MDUuMS4xNSAoS0hUTUwsIGxpa2UgR2Vja28pIFZlcnNpb24vMTYuNiBNb2JpbGUvMTVFMTQ4IFNhZmFyaS82MDQuMSIsInVzZXJJcCI6IjE4NS4yMzYuMTgzLjEwNzo0NjE1NCJ9.KfW4tMrSaMMqFb4_esGef0b5-OHsa9HOur0OZe5FZbQ&id=547&p=m3u8&aid=1742947208';
+            
+            if (Hls.isSupported()) {
+                var hls = new Hls();
+                hls.loadSource(videoUrl);
+                hls.attachMedia(video);
+                hls.on(Hls.Events.MANIFEST_PARSED, function () {
+                    video.play();
+                });
+            } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
+                video.src = videoUrl;
+                video.play();
+            }
         }
 
         function closeVideo() {
             document.getElementById("videoContainer").style.display = "none";
-            document.getElementById("videoPlayer").pause();
+            var video = document.getElementById('videoPlayer');
+            video.pause();
+            video.src = ''; // Remove the video source to stop it completely.
         }
     </script>
 </body>

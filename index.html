@@ -1,67 +1,183 @@
 <!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Jogos</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #000000;
+      margin: 0;
+      padding: 0;
+    }
 
-<html lang="pt-BR">  
-<head>  
-    <meta charset="UTF-8">  
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
-    <title>Futebol</title>  
-    <style>  
-        body {  
-            background-color: #000;  
-            margin: 0;  
-            overflow-x: hidden;  
-            display: flex;  
-            flex-direction: column;  
-            align-items: center;  
-        }  
-        a {  
-            text-decoration: none;  
-            outline: none;  
-            -webkit-tap-highlight-color: transparent;  
-            display: block;  
-            margin-bottom: 10px;  
-        }  
-        img {  
-            width: 100%;  
-            height: auto;  
-            cursor: pointer;  
-        }  
-    </style>  
+    .card {
+      background-color: #000000;
+      border-radius: 10px;
+      padding: 16px;
+      max-width: 100%;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      box-sizing: border-box;
+    }
+
+    .match-link {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .match {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 6px;
+      border-bottom: 1px solid #eee;
+      transition: background-color 0.2s;
+      font-weight: bold;
+    }
+
+    .match:hover {
+      background-color: #f9f9f9;
+    }
+
+    .match:last-child {
+      border-bottom: none;
+    }
+
+    .team {
+      display: flex;
+      align-items: center;
+      width: 30%;
+      font-size: 13px;
+      overflow: hidden;
+    }
+
+    .team.right {
+      justify-content: flex-end;
+    }
+
+    .team-name-wrapper {
+      overflow: hidden;
+      max-width: 100px;
+    }
+
+    .team-name {
+      display: inline-block;
+      white-space: nowrap;
+    }
+
+    /* Só será ativado via JavaScript */
+    .scrolling {
+      animation: scroll 5s linear infinite;
+    }
+
+    .team img {
+      width: 35px;
+      height: 35px;
+      margin: 0 6px;
+      object-fit: contain;
+      flex-shrink: 0;
+    }
+
+    .time {
+      width: 30%;
+      text-align: center;
+      font-size: 13px;
+      font-weight: bold;
+      color: #333;
+    }
+
+    @keyframes scroll {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-100%); }
+    }
+  </style>
 </head>
-<body>  
-    <!-- Repetindo a imagem e o link 8 vezes -->  
-    <a href="http://ngzcdn.vood.top/live/Veron23/Veron2023/547.m3u8?sjwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3NDI5NDcxOTksImlhdCI6MTc0Mjg2MDgwMCwibmJmIjoxNzQyODYwODAwLCJ1c2VyIjoiVmVyb24yMyIsInVzZXJBZ2VudCI6Ik1vemlsbGEvNS4wIChpUGhvbmU7IENQVSBpUGhvbmUgT1MgMTZfN18xMCBsaWtlIE1hYyBPUyBYKSBBcHBsZVdlYktpdC82MDUuMS4xNSAoS0hUTUwsIGxpa2UgR2Vja28pIFZlcnNpb24vMTYuNiBNb2JpbGUvMTVFMTQ4IFNhZmFyaS82MDQuMSIsInVzZXJJcCI6IjE4NS4yMzYuMTgzLjEwNzo0NzEyNCJ9.nKaN8UwyEcYRyCVxWB4ZmHG42EprlAiXFei2Ak0udeg&id=547&p=m3u8&aid=1742932245" target="_blank">  
-        <img src="https://iili.io/3TGctFR.jpg" alt="Imagem 1">  
-    </a>  
-    <a href="http://ngzcdn.vood.top/live/Veron23/Veron2023/547.m3u8?sjwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3NDI5NDcxOTksImlhdCI6MTc0Mjg2MDgwMCwibmJmIjoxNzQyODYwODAwLCJ1c2VyIjoiVmVyb24yMyIsInVzZXJBZ2VudCI6Ik1vemlsbGEvNS4wIChpUGhvbmU7IENQVSBpUGhvbmUgT1MgMTZfN18xMCBsaWtlIE1hYyBPUyBYKSBBcHBsZVdlYktpdC82MDUuMS4xNSAoS0hUTUwsIGxpa2UgR2Vja28pIFZlcnNpb24vMTYuNiBNb2JpbGUvMTVFMTQ4IFNhZmFyaS82MDQuMSIsInVzZXJJcCI6IjE4NS4yMzYuMTgzLjEwNzo0NzEyNCJ9.nKaN8UwyEcYRyCVxWB4ZmHG42EprlAiXFei2Ak0udeg&id=547&p=m3u8&aid=1742932245" target="_blank">  
-        <img src="https://iili.io/3TGctFR.jpg" alt="Imagem 2">  
-    </a>  
-	<script type="text/javascript">
-	atOptions = {
-		'key' : '12da4210d5b7b6e2da137eb1a5a519b9',
-		'format' : 'iframe',
-		'height' : 250,
-		'width' : 300,
-		'params' : {}
-	};
+<body>
+
+<div class="card">
+
+  <a class="match-link" href="detalhes_botafogo_corinthians.html">
+    <div class="match">
+      <div class="team">
+        <img src="escudo1.png" alt="">
+        <div class="team-name-wrapper"><div class="team-name">Botafogo</div></div>
+      </div>
+      <div class="time">18:30</div>
+      <div class="team right">
+        <div class="team-name-wrapper"><div class="team-name">Corinthians</div></div>
+        <img src="escudo2.png" alt="">
+      </div>
+    </div>
+  </a>
+
+  <a class="match-link" href="detalhes_sport_santos.html">
+    <div class="match">
+      <div class="team">
+        <img src="escudo3.png" alt="">
+        <div class="team-name-wrapper"><div class="team-name">Sport</div></div>
+      </div>
+      <div class="time">18:30</div>
+      <div class="team right">
+        <div class="team-name-wrapper"><div class="team-name">Santos</div></div>
+        <img src="escudo4.png" alt="">
+      </div>
+    </div>
+  </a>
+
+  <a class="match-link" href="detalhes_fortaleza_bragantino.html">
+    <div class="match">
+      <div class="team">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/e/e9/Fortaleza_EC_2018.png" alt="">
+        <div class="team-name-wrapper"><div class="team-name">Fortaleza</div></div>
+      </div>
+      <div class="time">18:30</div>
+      <div class="team right">
+        <div class="team-name-wrapper"><div class="team-name">Bragantino</div></div>
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSks70R3SbEgjSjQz0L0x3QyaRrGmvROxOg4Q&s" alt="">
+      </div>
+    </div>
+  </a>
+
+  <a class="match-link" href="detalhes_mirassol_vitoria.html">
+    <div class="match">
+      <div class="team">
+        <img src="https://upload.wikimedia.org/wikipedia/pt/c/ce/Escudo_de_2022_do_Mirassol_Futebol_Clube.png" alt="">
+        <div class="team-name-wrapper"><div class="team-name">Mirassol</div></div>
+      </div>
+      <div class="time">18:30</div>
+      <div class="team right">
+        <div class="team-name-wrapper"><div class="team-name">Vitória</div></div>
+        <img src="https://upload.wikimedia.org/wikipedia/pt/3/34/Esporte_Clube_Vit%C3%B3ria_logo.png" alt="">
+      </div>
+    </div>
+  </a>
+
+  <a class="match-link" href="detalhes_palmeiras_gremio.html">
+    <div class="match">
+      <div class="team">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/10/Palmeiras_logo.svg/2048px-Palmeiras_logo.svg.png" alt="">
+        <div class="team-name-wrapper"><div class="team-name">Palmeiras</div></div>
+      </div>
+      <div class="time">21:00</div>
+      <div class="team right">
+        <div class="team-name-wrapper"><div class="team-name">Grêmio</div></div>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Gremio_logo.svg/859px-Gremio_logo.svg.png" alt="">
+      </div>
+    </div>
+  </a>
+
+</div>
+
+<script>
+  // Ativar rolagem apenas para nomes maiores que 12 letras
+  document.querySelectorAll('.team-name').forEach(el => {
+    const texto = el.textContent.trim().replace(/\s/g, '');
+    if (texto.length > 12) {
+      el.classList.add('scrolling');
+    }
+  });
 </script>
-<script type="text/javascript" src="//www.highperformanceformat.com/12da4210d5b7b6e2da137eb1a5a519b9/invoke.js"></script>
-    <a href="http://ngzcdn.vood.top/live/Veron23/Veron2023/547.m3u8?sjwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3NDI5NDcxOTksImlhdCI6MTc0Mjg2MDgwMCwibmJmIjoxNzQyODYwODAwLCJ1c2VyIjoiVmVyb24yMyIsInVzZXJBZ2VudCI6Ik1vemlsbGEvNS4wIChpUGhvbmU7IENQVSBpUGhvbmUgT1MgMTZfN18xMCBsaWtlIE1hYyBPUyBYKSBBcHBsZVdlYktpdC82MDUuMS4xNSAoS0hUTUwsIGxpa2UgR2Vja28pIFZlcnNpb24vMTYuNiBNb2JpbGUvMTVFMTQ4IFNhZmFyaS82MDQuMSIsInVzZXJJcCI6IjE4NS4yMzYuMTgzLjEwNzo0NzEyNCJ9.nKaN8UwyEcYRyCVxWB4ZmHG42EprlAiXFei2Ak0udeg&id=547&p=m3u8&aid=1742932245" target="_blank">  
-        <img src="https://iili.io/3TGctFR.jpg" alt="Imagem 3">  
-    </a>  
-    <a href="http://ngzcdn.vood.top/live/Veron23/Veron2023/547.m3u8?sjwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3NDI5NDcxOTksImlhdCI6MTc0Mjg2MDgwMCwibmJmIjoxNzQyODYwODAwLCJ1c2VyIjoiVmVyb24yMyIsInVzZXJBZ2VudCI6Ik1vemlsbGEvNS4wIChpUGhvbmU7IENQVSBpUGhvbmUgT1MgMTZfN18xMCBsaWtlIE1hYyBPUyBYKSBBcHBsZVdlYktpdC82MDUuMS4xNSAoS0hUTUwsIGxpa2UgR2Vja28pIFZlcnNpb24vMTYuNiBNb2JpbGUvMTVFMTQ4IFNhZmFyaS82MDQuMSIsInVzZXJJcCI6IjE4NS4yMzYuMTgzLjEwNzo0NzEyNCJ9.nKaN8UwyEcYRyCVxWB4ZmHG42EprlAiXFei2Ak0udeg&id=547&p=m3u8&aid=1742932245" target="_blank">  
-        <img src="https://iili.io/3TGctFR.jpg" alt="Imagem 4">  
-    </a>  
-    <a href="http://ngzcdn.vood.top/live/Veron23/Veron2023/547.m3u8?sjwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3NDI5NDcxOTksImlhdCI6MTc0Mjg2MDgwMCwibmJmIjoxNzQyODYwODAwLCJ1c2VyIjoiVmVyb24yMyIsInVzZXJBZ2VudCI6Ik1vemlsbGEvNS4wIChpUGhvbmU7IENQVSBpUGhvbmUgT1MgMTZfN18xMCBsaWtlIE1hYyBPUyBYKSBBcHBsZVdlYktpdC82MDUuMS4xNSAoS0hUTUwsIGxpa2UgR2Vja28pIFZlcnNpb24vMTYuNiBNb2JpbGUvMTVFMTQ4IFNhZmFyaS82MDQuMSIsInVzZXJJcCI6IjE4NS4yMzYuMTgzLjEwNzo0NzEyNCJ9.nKaN8UwyEcYRyCVxWB4ZmHG42EprlAiXFei2Ak0udeg&id=547&p=m3u8&aid=1742932245" target="_blank">  
-        <img src="https://iili.io/3TGctFR.jpg" alt="Imagem 5">  
-    </a>  
-    <a href="http://ngzcdn.vood.top/live/Veron23/Veron2023/547.m3u8?sjwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3NDI5NDcxOTksImlhdCI6MTc0Mjg2MDgwMCwibmJmIjoxNzQyODYwODAwLCJ1c2VyIjoiVmVyb24yMyIsInVzZXJBZ2VudCI6Ik1vemlsbGEvNS4wIChpUGhvbmU7IENQVSBpUGhvbmUgT1MgMTZfN18xMCBsaWtlIE1hYyBPUyBYKSBBcHBsZVdlYktpdC82MDUuMS4xNSAoS0hUTUwsIGxpa2UgR2Vja28pIFZlcnNpb24vMTYuNiBNb2JpbGUvMTVFMTQ4IFNhZmFyaS82MDQuMSIsInVzZXJJcCI6IjE4NS4yMzYuMTgzLjEwNzo0NzEyNCJ9.nKaN8UwyEcYRyCVxWB4ZmHG42EprlAiXFei2Ak0udeg&id=547&p=m3u8&aid=1742932245" target="_blank">  
-        <img src="https://iili.io/3TGctFR.jpg" alt="Imagem 6">  
-    </a>  
-    <a href="http://ngzcdn.vood.top/live/Veron23/Veron2023/547.m3u8?sjwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3NDI5NDcxOTksImlhdCI6MTc0Mjg2MDgwMCwibmJmIjoxNzQyODYwODAwLCJ1c2VyIjoiVmVyb24yMyIsInVzZXJBZ2VudCI6Ik1vemlsbGEvNS4wIChpUGhvbmU7IENQVSBpUGhvbmUgT1MgMTZfN18xMCBsaWtlIE1hYyBPUyBYKSBBcHBsZVdlYktpdC82MDUuMS4xNSAoS0hUTUwsIGxpa2UgR2Vja28pIFZlcnNpb24vMTYuNiBNb2JpbGUvMTVFMTQ4IFNhZmFyaS82MDQuMSIsInVzZXJJcCI6IjE4NS4yMzYuMTgzLjEwNzo0NzEyNCJ9.nKaN8UwyEcYRyCVxWB4ZmHG42EprlAiXFei2Ak0udeg&id=547&p=m3u8&aid=1742932245" target="_blank">  
-        <img src="https://iili.io/3TGctFR.jpg" alt="Imagem 7">  
-    </a>  
-    <a href="http://ngzcdn.vood.top/live/Veron23/Veron2023/547.m3u8?sjwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3NDI5NDcxOTksImlhdCI6MTc0Mjg2MDgwMCwibmJmIjoxNzQyODYwODAwLCJ1c2VyIjoiVmVyb24yMyIsInVzZXJBZ2VudCI6Ik1vemlsbGEvNS4wIChpUGhvbmU7IENQVSBpUGhvbmUgT1MgMTZfN18xMCBsaWtlIE1hYyBPUyBYKSBBcHBsZVdlYktpdC82MDUuMS4xNSAoS0hUTUwsIGxpa2UgR2Vja28pIFZlcnNpb24vMTYuNiBNb2JpbGUvMTVFMTQ4IFNhZmFyaS82MDQuMSIsInVzZXJJcCI6IjE4NS4yMzYuMTgzLjEwNzo0NzEyNCJ9.nKaN8UwyEcYRyCVxWB4ZmHG42EprlAiXFei2Ak0udeg&id=547&p=m3u8&aid=1742932245" target="_blank">  
-        <img src="https://iili.io/3TGctFR.jpg" alt="Imagem 8">  
-    </a>  
-</body
+
+</body>
+</html>

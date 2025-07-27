@@ -1,198 +1,137 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-  <meta charset="UTF-8">
-  <title>Jogos</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Feed de Jogos</title>
+  <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@700&display=swap" rel="stylesheet">
   <style>
+    /* Remove o highlight azul padrão do toque */
+    * {
+      -webkit-tap-highlight-color: transparent;
+    }
+
     body {
-      font-family: Arial, sans-serif;
-      background-color: #000000;
+      background-color: #000;
       margin: 0;
       padding: 0;
+      font-family: 'Rajdhani', sans-serif;
     }
 
-    .card {
-      background-color: #000000;
-      border-radius: 10px;
+    .feed {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
       padding: 16px;
-      max-width: 100%;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
-      box-sizing: border-box;
     }
 
-    .match-link {
-      text-decoration: none;
-      color: inherit;
-    }
-
-    .match {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 10px 6px;
-      border-bottom: 1px solid #eee;
-      transition: background-color 0.2s;
-      font-weight: bold;
-    }
-
-    .match:hover {
-      background-color: #f9f9f9;
-    }
-
-    .match:last-child {
-      border-bottom: none;
-    }
-
-    .team {
-      display: flex;
-      align-items: center;
-      width: 30%;
-      font-size: 13px;
+    .image-container {
+      position: relative;
+      margin-bottom: 24px;
+      border-radius: 12px;
       overflow: hidden;
-    }
-
-    .team.right {
-      justify-content: flex-end;
-    }
-
-    .team-name-wrapper {
-      overflow: hidden;
-      max-width: 100px;
-    }
-
-    .team-name {
       display: inline-block;
-      white-space: nowrap;
     }
 
-    /* Só será ativado via JavaScript */
-    .scrolling {
-      animation: scroll 5s linear infinite;
+    .image-container img {
+      width: 90vw;
+      max-width: 500px;
+      display: block;
+      border-radius: 12px;
     }
 
-    .team img {
-      width: 35px;
-      height: 35px;
-      margin: 0 6px;
-      object-fit: contain;
-      flex-shrink: 0;
+    .legend {
+      position: absolute;
+      bottom: 12px;
+      left: 50%;
+      transform: translateX(-50%);
+      color: white;
+      font-weight: 700;
+      font-size: 24px;
+      background: rgba(0, 0, 0, 0.6);
+      padding: 6px 12px;
+      border-radius: 8px;
     }
 
-    .time {
-      width: 30%;
-      text-align: center;
-      font-size: 13px;
-      font-weight: bold;
-      color: #333;
-    }
-
-    @keyframes scroll {
-      0% { transform: translateX(0); }
-      100% { transform: translateX(-100%); }
+    .image-container:active {
+      transform: scale(0.96);
+      background-color: #222;
+      border-radius: 12px;
+      transition: transform 0.2s ease, background-color 0.2s ease;
     }
   </style>
 </head>
 <body>
-
-<!-- Banner Adsterra acima da lista -->
-<div style="text-align:center; margin: 16px auto;">
-  <script type="text/javascript">
-    atOptions = {
-      'key' : '10a12cf406297a81d243b6d345fb5686',
-      'format' : 'iframe',
-      'height' : 60,
-      'width' : 468,
-      'params' : {}
-    };
-  </script>
-  <script type="text/javascript" src="//www.highperformanceformat.com/10a12cf406297a81d243b6d345fb5686/invoke.js"></script>
-</div>
-
-<div class="card">
-
-  <!-- Aqui começa a lista de jogos -->
-  <a class="match-link" href="detalhes_botafogo_corinthians.html">
-    <div class="match">
-      <div class="team">
-        <img src="escudo1.png" alt="">
-        <div class="team-name-wrapper"><div class="team-name">Botafogo</div></div>
+  <div class="feed">
+    <a href="https://exemplo.com/jogo1" target="_blank">
+      <div class="image-container">
+        <img loading="lazy" draggable="false" oncontextmenu="return false;" src="https://i.ibb.co/wNQtkJZK/Picsart-25-07-26-00-05-53-660.png" alt="Botafogo x Corinthians">
+        <div class="legend">0 - 0</div>
       </div>
-      <div class="time">18:30</div>
-      <div class="team right">
-        <div class="team-name-wrapper"><div class="team-name">Corinthians</div></div>
-        <img src="escudo2.png" alt="">
-      </div>
-    </div>
-  </a>
+    </a>
 
-  <a class="match-link" href="detalhes_sport_santos.html">
-    <div class="match">
-      <div class="team">
-        <img src="escudo3.png" alt="">
-        <div class="team-name-wrapper"><div class="team-name">Sport</div></div>
+    <a href="https://exemplo.com/jogo2" target="_blank">
+      <div class="image-container">
+        <img loading="lazy" draggable="false" oncontextmenu="return false;" src="https://i.ibb.co/mCjCqzkR/Picsart-25-07-26-11-50-34-166.png" alt="Jogo 2">
+        <div class="legend">Em Breve</div>
       </div>
-      <div class="time">18:30</div>
-      <div class="team right">
-        <div class="team-name-wrapper"><div class="team-name">Santos</div></div>
-        <img src="escudo4.png" alt="">
-      </div>
-    </div>
-  </a>
+    </a>
 
-  <a class="match-link" href="detalhes_fortaleza_bragantino.html">
-    <div class="match">
-      <div class="team">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/e/e9/Fortaleza_EC_2018.png" alt="">
-        <div class="team-name-wrapper"><div class="team-name">Fortaleza</div></div>
+    <a href="https://exemplo.com/jogo3" target="_blank">
+      <div class="image-container">
+        <img loading="lazy" draggable="false" oncontextmenu="return false;" src="https://i.ibb.co/wNQtkJZK/Picsart-25-07-26-00-05-53-660.png" alt="Jogo 3">
+        <div class="legend">20:00</div>
       </div>
-      <div class="time">18:30</div>
-      <div class="team right">
-        <div class="team-name-wrapper"><div class="team-name">Bragantino</div></div>
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSks70R3SbEgjSjQz0L0x3QyaRrGmvROxOg4Q&s" alt="">
-      </div>
-    </div>
-  </a>
+    </a>
 
-  <a class="match-link" href="detalhes_mirassol_vitoria.html">
-    <div class="match">
-      <div class="team">
-        <img src="https://upload.wikimedia.org/wikipedia/pt/c/ce/Escudo_de_2022_do_Mirassol_Futebol_Clube.png" alt="">
-        <div class="team-name-wrapper"><div class="team-name">Mirassol</div></div>
+    <a href="https://exemplo.com/jogo4" target="_blank">
+      <div class="image-container">
+        <img loading="lazy" draggable="false" oncontextmenu="return false;" src="https://i.ibb.co/wNQtkJZK/Picsart-25-07-26-00-05-53-660.png" alt="Jogo 4">
+        <div class="legend">21:30</div>
       </div>
-      <div class="time">18:30</div>
-      <div class="team right">
-        <div class="team-name-wrapper"><div class="team-name">Vitória</div></div>
-        <img src="https://upload.wikimedia.org/wikipedia/pt/3/34/Esporte_Clube_Vit%C3%B3ria_logo.png" alt="">
+    </a>
+
+    <a href="https://exemplo.com/jogo5" target="_blank">
+      <div class="image-container">
+        <img loading="lazy" draggable="false" oncontextmenu="return false;" src="https://via.placeholder.com/500x300/444/fff?text=Jogo+5" alt="Jogo 5">
+        <div class="legend">2ª Rodada</div>
       </div>
-    </div>
-  </a>
+    </a>
 
-  <a class="match-link" href="detalhes_palmeiras_gremio.html">
-    <div class="match">
-      <div class="team">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/10/Palmeiras_logo.svg/2048px-Palmeiras_logo.svg.png" alt="">
-        <div class="team-name-wrapper"><div class="team-name">Palmeiras</div></div>
+    <a href="https://exemplo.com/jogo6" target="_blank">
+      <div class="image-container">
+        <img loading="lazy" draggable="false" oncontextmenu="return false;" src="https://via.placeholder.com/500x300/555/fff?text=Jogo+6" alt="Jogo 6">
+        <div class="legend">Em breve</div>
       </div>
-      <div class="time">21:00</div>
-      <div class="team right">
-        <div class="team-name-wrapper"><div class="team-name">Grêmio</div></div>
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Gremio_logo.svg/859px-Gremio_logo.svg.png" alt="">
+    </a>
+
+    <a href="https://exemplo.com/jogo7" target="_blank">
+      <div class="image-container">
+        <img loading="lazy" draggable="false" oncontextmenu="return false;" src="https://via.placeholder.com/500x300/666/fff?text=Jogo+7" alt="Jogo 7">
+        <div class="legend">Adiado</div>
       </div>
-    </div>
-  </a>
+    </a>
 
-</div>
+    <a href="https://exemplo.com/jogo8" target="_blank">
+      <div class="image-container">
+        <img loading="lazy" draggable="false" oncontextmenu="return false;" src="https://via.placeholder.com/500x300/777/fff?text=Jogo+8" alt="Jogo 8">
+        <div class="legend">0 - 1</div>
+      </div>
+    </a>
 
-<script>
-  // Ativar rolagem apenas para nomes maiores que 12 letras
-  document.querySelectorAll('.team-name').forEach(el => {
-    const texto = el.textContent.trim().replace(/\s/g, '');
-    if (texto.length > 12) {
-      el.classList.add('scrolling');
-    }
-  });
-</script>
+    <a href="https://exemplo.com/jogo9" target="_blank">
+      <div class="image-container">
+        <img loading="lazy" draggable="false" oncontextmenu="return false;" src="https://via.placeholder.com/500x300/888/fff?text=Jogo+9" alt="Jogo 9">
+        <div class="legend">22:00</div>
+      </div>
+    </a>
 
+    <a href="https://exemplo.com/jogo10" target="_blank">
+      <div class="image-container">
+        <img loading="lazy" draggable="false" oncontextmenu="return false;" src="https://via.placeholder.com/500x300/999/fff?text=Jogo+10" alt="Jogo 10">
+        <div class="legend">Em breve</div>
+      </div>
+    </a>
+  </div>
 </body>
 </html>
